@@ -58,10 +58,14 @@ const AddNewDoctor = () => {
       formData.append("doctorDepartment", doctorDepartment);
       formData.append("docAvatar", docAvatar);
       await axios
-        .post("http://localhost:4000/api/v1/user/doctor/addnew", formData, {
-          withCredentials: true,
-          headers: { "Content-Type": "application/json" },
-        })
+        .post(
+          "https://hospitalmanagementbackend.onrender.com//api/v1/user/doctor/addnew",
+          formData,
+          {
+            withCredentials: true,
+            headers: { "Content-Type": "application/json" },
+          }
+        )
         .then((res) => {
           toast.success(res.data.message);
           setIsAuthenticated(true);
